@@ -1,6 +1,6 @@
 "use strict";
 
-//This index file is just for testing purposes
+//This file is just for testing purposes
 const readMeta = require('./app/tag_reader');
 const writeMeta = require('./app/tag_writer');
 const Tag = require('./app/tag');
