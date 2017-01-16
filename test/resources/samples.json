@@ -1,0 +1,9 @@
+{
+    "aiff": "sample_AIFF_16bits.aif",
+    "flac": "sample_FLAC_16bits.flac",
+    "m4a": "sample_M4A_320kbps.m4a",
+    "mp3": "sample_MP3_320kbps.mp3",
+    "ogg": "sample_OGG_320kbps.ogg",
+    "wav": "sample_WAV_16bits.wav",
+    "wma": "sample_WMA_320kbps.wma"
+}
