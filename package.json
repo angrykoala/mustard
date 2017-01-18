@@ -26,6 +26,7 @@
   "dependencies": {
     "browser-id3-writer": "^3.0.2",
     "electron": "^1.4.14",
+    "jquery": "^3.1.1",
     "musicmetadata": "^2.0.5",
     "vue": "^2.1.8"
   },
