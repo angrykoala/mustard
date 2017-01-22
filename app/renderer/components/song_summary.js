@@ -26,7 +26,7 @@ module.exports = {
         ipcRenderer.on('file-loaded', (event, fileData) => {
             console.log(fileData);
             this.tag = fileData.tag;
-            this.path = fileData.path
+            this.path = fileData.path;
 
         });
     },

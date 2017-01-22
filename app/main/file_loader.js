@@ -12,7 +12,7 @@ module.exports = {
     loadFileDialog(win) {
         return dialog.showOpenDialog(win,{
             title: "Load File",
-            properties: ['multiSelections', 'openFile'],
+            properties: ['openFile'],
         });
     },
 
