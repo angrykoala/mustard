@@ -8,6 +8,7 @@ const {
 
 
 module.exports = {
+    //Make these async with callback
     loadFileDialog(win) {
         return dialog.showOpenDialog(win,{
             title: "Load File",

@@ -8,12 +8,12 @@
 
 
     <script>
-        window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');//jshint ignore:line
+        window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js'); //jshint ignore:line
     </script>
 
     <script src="./node_modules/vue/dist/vue.min.js"></script>
     <script src="./resources/semantic/semantic.min.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="resources/semantic/semantic.min.css">
 </head>
 
@@ -22,7 +22,19 @@
         {{ message }}
     </div>
 
-    <button class="ui button" onclick="loadFile()">Follow</button>
+    <button class="ui button" onclick="loadFile()">Load native</button>
+
+    <script>
+    /*  //Drag & Drop
+        document.ondragover = document.ondrop = (ev) => {
+            ev.preventDefault()
+        }
+
+        document.body.ondrop = (ev) => {
+            console.log(ev.dataTransfer.files[0].path)
+            ev.preventDefault()
+        }*/
+    </script>
 
     <script type="text/javascript" src="./app.js"></script>
 </body>
