@@ -5,6 +5,8 @@ const {
     BrowserWindow
 } = require('electron');
 
+const routes=require('./app/main/routes');
+
 
 function isDevEnv() {
     return true;
@@ -37,6 +39,8 @@ function createWindow() {
     win.on('closed', () => {
         win = null;
     });
+    
+    routes(win);
 }
 
 app.on('ready', createWindow);
