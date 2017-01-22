@@ -2,7 +2,7 @@
 
 
 const components = {
-
+    "song-summary":require('./app/renderer/components/song_summary')
 };
 
 
@@ -19,14 +19,3 @@ const app = new Vue({ // jshint ignore:line
 
     }
 });
-
-const {ipcRenderer} = require('electron')
-
-
-
-function loadFile(){
-    console.log("loadFile");
-    ipcRenderer.send('load-file');
-    
-    
-}
