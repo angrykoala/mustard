@@ -8,7 +8,7 @@ const FrameSpec = { //Check browser-id3-writer and Wikipedia
     genre: "TCON",
     title: "TIT2",
     albumArtist: "TPE2",
-    albumTitle: "TALB",
+    album: "TALB",
 };
 
 module.exports = function(filename, tag, done) {

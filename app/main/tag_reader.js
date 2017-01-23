@@ -3,7 +3,7 @@
 const fs = require('fs');
 const MusicMetadata = require('musicmetadata'); //Only read
 
-const Tag=require('./tag');
+const Tag=require('../tag');
 
 
 module.exports=function(filename, done) {
@@ -14,7 +14,7 @@ module.exports=function(filename, done) {
             artists : metadata.artists,
             genre : metadata.genre, //Improve this shit in the future
             albumArtist : metadata.albumartist,
-            albumTitle : metadata.album            
+            album : metadata.album            
         }));
     });
 };

@@ -5,7 +5,8 @@ const {
     ipcMain
 } = require('electron');
 const fileLoader = require('./file_loader');
-const tagReader = require('../tag_reader');
+const tagReader = require('./tag_reader');
+const tagWriter = require('./tag_writer');
 
 module.exports = function(win) {
 
@@ -23,6 +24,14 @@ module.exports = function(win) {
                 }
             });
         }
+    });
+
+    ipcMain.on('save-file', (event, arg) => {
+        console.log("Save File", arg);
+        tagWriter(arg.path[0], arg.tag,()=>{
+            console.log("Saved");
+        });
+
     });
 
 };

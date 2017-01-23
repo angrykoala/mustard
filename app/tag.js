@@ -6,7 +6,7 @@ class Tag {
         this.artists = data.artists || [];
         this.genre = data.genre || []; //Improve this shit in the future
         this.albumArtist = data.albumArtist || "";
-        this.albumTitle = data.albumTitle || "";
+        this.album = data.album || "";
     }
 }
 

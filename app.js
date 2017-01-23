@@ -2,7 +2,8 @@
 
 
 const components = {
-    "song-summary":require('./app/renderer/components/song_summary')
+    "song-summary":require('./app/renderer/components/song_summary'),
+    "song-edit": require('./app/renderer/components/song_edit')
 };
 
 
