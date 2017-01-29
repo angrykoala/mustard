@@ -6,6 +6,8 @@ const components = {
     "song-edit": require('./app/renderer/components/song_edit')
 };
 
+const Library=require('electron').remote.require('./app/main/library');
+
 
 const app = new Vue({ // jshint ignore:line
     el: '#app',

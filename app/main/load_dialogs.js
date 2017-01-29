@@ -5,8 +5,6 @@ const {
 } = require('electron');
 
 
-
-
 module.exports = {
     //Make these async with callback
     loadFileDialog(win) {

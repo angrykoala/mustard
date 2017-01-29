@@ -5,8 +5,9 @@ const {
     BrowserWindow
 } = require('electron');
 
-const routes=require('./app/main/routes');
+const routes = require('./app/main/routes');
 
+const Library = require('./app/main/library');
 
 function isDevEnv() {
     return true;
@@ -17,7 +18,7 @@ function isDevEnv() {
 let win;
 
 function createWindow() {
-
+    //Library.loadFolder('myMusicDir');
     let winConfig = {
         width: 500,
         height: 500,
@@ -39,7 +40,7 @@ function createWindow() {
     win.on('closed', () => {
         win = null;
     });
-    
+
     routes(win);
 }
 

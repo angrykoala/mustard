@@ -4,7 +4,7 @@
 const {
     ipcMain
 } = require('electron');
-const fileLoader = require('./file_loader');
+const fileLoader = require('./load_dialogs');
 const tagReader = require('./tag_reader');
 const tagWriter = require('./tag_writer');
 
