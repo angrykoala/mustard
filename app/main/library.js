@@ -9,17 +9,16 @@ const config = require('../config.json');
 
 const supportedFormats = new Set(config.formats.map(ext => "." + ext));
 
-console.log("Library file");
-
 class Library {
     constructor() {
-        console.log("constructor");
+        this.songsCount=0;
         this.loadedLibrary = new Map();
     }
 
 
     loadFile(path) {
         TagReader(path).then((tag) => {
+            this.songsCount++;
             this.loadedLibrary.set(path, [tag]);
         }).catch((err) => {
             console.err("Error: " + err);
@@ -27,25 +26,21 @@ class Library {
     }
 
     loadFolder(folder) {
-        console.log("Load Folder");
         return getFolderFiles(folder).then((musicFiles) => {
-            console.log("then");
             let promises = musicFiles.map((file) => {
                 return TagReader(path.join(folder, file));
             });
-            console.log("promises",promises.length);
             return Promise.all(promises).then((tags) => {
-                console.log("In all");
+                this.songsCount+=promises.length;
                 this.loadedLibrary.set(folder, tags);
-                console.log("Loaded "+ tags.length+" songs");
                 return tags;
             }).catch((err) => {
-                console.err("Error: " + err);
+                console.err("Error: " + err); //TODO: an error should only affect 1 promise
             });
         }); //add catch here
     }
     getSongsCount() {
-        return this.loadedLibrary.size; //Fix this thingy
+        return this.songsCount;
     }
 }
 
