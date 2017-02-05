@@ -12,7 +12,7 @@ module.exports = function(filename) {
             if (err) return reject(err);
             let result = new Tag({
                 title: metadata.title,
-                artists: metadata.artists,
+                artists: metadata.artist,
                 genre: metadata.genre, //Improve this shit in the future
                 albumArtist: metadata.albumartist,
                 album: metadata.album

@@ -30,11 +30,9 @@ module.exports = {
       <button class="ui button"v-on:click="updateData">Update</button>
       <button class="ui button" v-on:click="loadFile">Load</button>
     </div>
-    
     `,
     mounted: function() {
         ipcRenderer.on('file-loaded', (event, fileData) => {
-            console.log(fileData);
             this.tag = fileData.tag;
             this.path = fileData.path;
 
