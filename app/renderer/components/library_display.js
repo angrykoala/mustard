@@ -19,11 +19,10 @@ module.exports = {
         </div>
     </div>
     `,
-    mounted: function() {
-        /*    Library.loadFolder('example/folder').then((loadedData)=>{
-                console.log(loadedData.length);
-                this.songs=loadedData;
-            });*/
+    mounted: function() {        
+        Library.onLoad((tags) => {
+            this.songs=this.songs.concat(tags);
+        });
 
     }
 };

@@ -20,10 +20,7 @@ const app = new Vue({ // jshint ignore:line
     mounted() {
         console.log("Vue mounted");
         
-        //Overrides default ondrop behaviour
-        document.ondragover = document.ondrop = (ev) => {
-            ev.preventDefault();
-        };
+
     },
     updated() {
 

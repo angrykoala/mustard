@@ -3,26 +3,22 @@
 const Library = require('electron').remote.require('./app/main/library');
 
 module.exports = {
-    data() {
+    mounted: function() {
+        //Overrides default ondrop behaviour
+        document.ondragover = (ev) => {
+            ev.preventDefault();
+        };
 
+        document.ondrop = (ev) => {
+            ev.preventDefault();
+            this.loadFile(ev.dataTransfer.files[0].path);
+        };
     },
-    template: `
-        <div class="drop-zone" v-on:drop="onDrop">
-            <p>Drop FIles Here</p>
-        </div>
-    `,
     methods: {
-        loadFile(path) {
-            //ipcRenderer.send('load-file',path);   
+        loadFile(path) { 
             Library.loadFile(path).then((tag) => {
-                console.log(tag);
+                console.log("Loaded");
             });
         },
-        onDrop(ev) {
-            this.loadFile(ev.dataTransfer.files[0].path);
-            ev.preventDefault();
-        }
-
-
     }
 };

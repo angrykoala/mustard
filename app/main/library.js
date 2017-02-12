@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const EventEmitter = require('events');
 
 const TagReader = require('./tag_reader');
 
@@ -13,16 +14,17 @@ class Library {
     constructor() {
         this.songsCount = 0;
         this.loadedLibrary = new Map();
+        this.events = new EventEmitter();
     }
-
 
     loadFile(path) {
         return TagReader(path).then((tag) => {
             this.songsCount++;
             this.loadedLibrary.set(path, [tag]);
+            this.events.emit('load',[tag]);
             return [tag];
         }).catch((err) => {
-            console.err("Error: " + err);
+            console.error("Error: " + err);
         });
     }
 
@@ -34,12 +36,23 @@ class Library {
             return Promise.all(promises).then((tags) => {
                 this.songsCount += promises.length;
                 this.loadedLibrary.set(folder, tags);
+                this.events.emit('load',tags);
                 return tags;
             }).catch((err) => {
-                console.err("Error: " + err); //TODO: an error should only affect 1 promise
+                console.error("Error: " + err); //TODO: an error should only affect 1 promise
             });
         }); //add catch here
     }
+
+    onDelete(callback) {
+        this.events.on('delete', callback);
+
+    }
+    onLoad(callback) {
+        console.log("On Load");
+        this.events.on('load', callback);
+    }
+
     getSongsCount() {
         return this.songsCount;
     }
