@@ -1,6 +1,6 @@
 "use strict";
 
-const Library=require('electron').remote.require('./app/main/library');
+const Library = require('electron').remote.require('./app/main/library');
 
 module.exports = {
     data() {
@@ -20,10 +20,10 @@ module.exports = {
     </div>
     `,
     mounted: function() {
-    /*    Library.loadFolder('example/folder').then((loadedData)=>{
-            console.log(loadedData.length);
-            this.songs=loadedData;
-        });*/
-        
-    }    
+        /*    Library.loadFolder('example/folder').then((loadedData)=>{
+                console.log(loadedData.length);
+                this.songs=loadedData;
+            });*/
+
+    }
 };

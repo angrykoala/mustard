@@ -11,15 +11,16 @@ const supportedFormats = new Set(config.formats.map(ext => "." + ext));
 
 class Library {
     constructor() {
-        this.songsCount=0;
+        this.songsCount = 0;
         this.loadedLibrary = new Map();
     }
 
 
     loadFile(path) {
-        TagReader(path).then((tag) => {
+        return TagReader(path).then((tag) => {
             this.songsCount++;
             this.loadedLibrary.set(path, [tag]);
+            return [tag];
         }).catch((err) => {
             console.err("Error: " + err);
         });
@@ -31,7 +32,7 @@ class Library {
                 return TagReader(path.join(folder, file));
             });
             return Promise.all(promises).then((tags) => {
-                this.songsCount+=promises.length;
+                this.songsCount += promises.length;
                 this.loadedLibrary.set(folder, tags);
                 return tags;
             }).catch((err) => {
