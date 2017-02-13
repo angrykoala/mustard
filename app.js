@@ -14,7 +14,8 @@ const components = {
 const app = new Vue({ // jshint ignore:line
     el: '#app',
     data: {
-        message: 'Hello Vue!'
+        message: 'Hello Vue!',
+        songPath: "",
     },
     components: components,
     mounted() {
@@ -24,5 +25,9 @@ const app = new Vue({ // jshint ignore:line
     },
     updated() {
 
+    },
+    methods(){
+        
+        
     }
 });
