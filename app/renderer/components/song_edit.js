@@ -18,7 +18,8 @@ module.exports = {
         return {
             tag: {},
             path: "",
-            loaded: false
+            loaded: false,
+            genre: ""
         };
     },
     template: `
@@ -30,7 +31,7 @@ module.exports = {
           </div>
           <div class="field">
             <label>Genre</label>
-            <input type="text" placeholder="Song Genre" v-model="tag.genre">
+            <input type="text" placeholder="Song Genre" v-model="genre">
           </div>
           <div class="field">
             <label>Album</label>
@@ -38,6 +39,10 @@ module.exports = {
           </div>
 
           <button class="ui button"v-on:click="save">Save</button>
+          <button class="ui button"v-on:click="cancel">Cancel</button>
+        </div>
+        <div v-else>
+            Drop File        
         </div>
         <dropzone v-on:drop="loadSong"></dropzone>
     </div>
@@ -47,23 +52,34 @@ module.exports = {
     },
     methods: {
         save() {
+            console.log("save",this.genre);
             if (this.tag && this.path) { //improve these checks
                 /*ipcRenderer.send('save-file', {
                     path: this.path,
                     tag: this.tag
                 });*/
                 
-                tagWriter(this.path,this.tag,(err)=>{
-                    if(err) console.log(err);
+                //this.tag.genre[0]=this.genre; //Why this doesn't work????
+                this.tag.genre=[this.genre];
+
+                tagWriter(this.path, this.tag, (err) => {
+                    if (err) console.log(err);
                     console.log("Saved?");
                 })
             }
         },
+        cancel() {
+            this.loaded = false;
+            this.path = "";
+            this.tag = {};
+
+        },
         loadSong(path) {
-            this.path=path;
+            this.path = path;
             tagReader(path).then((data) => {
                 this.tag = data;
                 this.loaded = true;
+                this.genre=data.genre[0];
             }).catch((err) => {
                 this.loaded = false;
                 console.log(err);
