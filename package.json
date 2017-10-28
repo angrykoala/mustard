@@ -1,27 +1,8 @@
 {
   "name": "mustard",
   "version": "0.0.1",
-  "description": "A tagger tool for music files and simpe player",
+  "description": "A tagger tool for music files and simple player",
   "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "jshint": "jshint index.js app/*.js",
-    "build-electron": "electron-packager . --overwrite --out builds --ignore='\\.gitignore|\\.jshintrc'",
-    "build-electron-all": "npm run build-electron-win && npm run build-electron-linux && npm run build-electron-mac",
-    "build-electron-win": "electron-packager . --overwrite --out builds --platform=win32 --arch=x64",
-    "build-electron-linux": "electron-packager . --overwrite --out builds --platform=linux --arch=x64",
-    "build-electron-mac": "electron-packager . --overwrite --out builds --platform=darwin --arch=x64"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/angrykoala/mustard.git"
-  },
-  "author": "angrykoala <demiurgosoft@hotmail.com>",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/angrykoala/mustard/issues"
-  },
   "homepage": "https://github.com/angrykoala/mustard#readme",
   "dependencies": {
     "browser-id3-writer": "^3.0.2",
@@ -33,5 +14,52 @@
   "devDependencies": {
     "electron-packager": "^8.5.0",
     "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jshint": "jshint index.js app/*.js",
+    "build-electron": "electron-packager . --overwrite --out builds --ignore='\\.gitignore|\\.jshintrc'",
+    "build-electron-all": "npm run build-electron-win && npm run build-electron-linux && npm run build-electron-mac",
+    "dist": "npm run clean && electron-builder -wlm --x64 --ia32",
+    "dist-linux": "npm run clean && electron-builder -l --x64 --ia32",
+    "dist-win": "npm run clean && electron-builder -w --x64 --ia32",
+    "dist-mac": "npm run clean && electron-builder -m"
+  },
+  "build": {
+    "appId": "angrykoala.mustard",
+    "linux": {
+      "target": [
+        "dir",
+        "deb",
+        "rpm",
+        "pacman"
+      ],
+      "category": "AudioVideo"
+    },
+    "win": {
+      "target": [
+        "dir",
+        "zip",
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dir",
+        "dmg",
+        "pkg"
+      ],
+      "category": "public.app-category.music"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angrykoala/mustard.git"
+  },
+  "author": "angrykoala <angrykoala@outlook.es>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/angrykoala/mustard/issues"
   }
 }
