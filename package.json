@@ -6,13 +6,13 @@
   "homepage": "https://github.com/angrykoala/mustard#readme",
   "dependencies": {
     "browser-id3-writer": "^3.0.2",
-    "electron": "^1.4.14",
     "jquery": "^3.1.1",
     "musicmetadata": "^2.0.5",
     "vue": "^2.1.8"
   },
   "devDependencies": {
-    "electron-packager": "^8.5.0",
+    "electron": "^1.4.14",
+    "electron-builder": "^19.41.1",
     "jshint": "^2.9.4"
   },
   "scripts": {
