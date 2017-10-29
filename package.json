@@ -19,10 +19,8 @@
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "jshint": "jshint index.js app/*.js",
-    "dist": "npm run clean && electron-builder -wlm --x64 --ia32",
-    "dist-linux": "npm run clean && electron-builder -l --x64 --ia32",
-    "dist-win": "npm run clean && electron-builder -w --x64 --ia32",
-    "dist-mac": "npm run clean && electron-builder -m"
+    "dist": "electron-builder",
+    "dist-all": "npm run clean && electron-builder --x64 --ia32",
   },
   "build": {
     "appId": "angrykoala.mustard",
