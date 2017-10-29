@@ -28,17 +28,17 @@
     "appId": "angrykoala.mustard",
     "linux": {
       "target": [
-        "dir",
         "deb",
         "rpm",
-        "pacman"
+        "pacman",
+        "AppImage"
       ],
       "category": "AudioVideo"
     },
     "win": {
       "target": [
-        "dir",
         "zip",
+        "portable",
         "nsis"
       ]
     },
