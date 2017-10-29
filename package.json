@@ -13,12 +13,10 @@
   "devDependencies": {
     "electron": "^1.4.14",
     "electron-builder": "^19.41.1",
-    "jshint": "^2.9.4"
   },
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jshint": "jshint index.js app/*.js",
     "dist": "electron-builder",
     "dist-all": "npm run clean && electron-builder --x64 --ia32",
   },
