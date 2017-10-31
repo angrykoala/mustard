@@ -21,7 +21,7 @@
     "jshint": "jshint index.js app/*.js",
     "clean": "rm -rf dist",
     "dist": "electron-builder",
-    "dist-all": "npm run clean && electron-builder --x64 --ia32"
+    "dist-all": "npm run clean && electron-builder -wlm --x64 --ia32"
   },
   "build": {
     "appId": "angrykoala.mustard",
