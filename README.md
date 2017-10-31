@@ -25,9 +25,9 @@ A tagger tool for music files
 ### Supported Platforms
 _Mustard_ support the following platforms:
 
-* Windows 64 bits
-* Linux 64 bits
-* OSX 64 bits
+* Windows 32/64 bits
+* Linux 32/64 bits
+* OSX 32/64 bits
 
 > You can compile mustard for other platforms following the _Development Instructions_
 
@@ -40,8 +40,8 @@ _Mustard_ support the following platforms:
 2. Execute `npm install`
 3. Execute `npm start` to run it
     * Execute `npm test` to run the tests
-4. Execute `npm run build-electron` to build _mustard_ for your current platform
-    * Execute `npm run build-electron-all` to build _mustard_ for all supported platforms
+4. Execute `npm run dist` to build _mustard_ for your current platform and architecture. You can pass arguments adding `--` at the end. For example: `npm run dist -- -l --ia32`
+    * Execute `npm run dist-all` to build _mustard_ for all supported platforms
 
 ## Acknowledgements
 
